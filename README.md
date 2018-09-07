@@ -227,7 +227,9 @@ Now, let's plot our function $f(x) = 3x^2 + 11$ along with the tangent line for 
 
 ```python
 import matplotlib.pyplot as plt
+%matplotlib inline
 import numpy as np
+
 fig, ax = plt.subplots(figsize=(10,6))
 
 x_values = np.linspace(-10, 10, 100)
@@ -238,6 +240,10 @@ plt.plot(tan_line['x_dev'], tan_line['tan'], color = "yellow", label = tan_line[
 
 ax.legend(loc='upper center', fontsize='large');
 ```
+
+
+![png](index_files/index_26_0.png)
+
 
 #### Graphing the derivative across a range of values
 
@@ -280,8 +286,6 @@ plt.plot(x_values, derivative_values,color="darkorange", label = "f '(x) = 6x")
 ax.grid(True, which='both')
 
 plt.legend(loc="upper left");
-
-plt.show()
 ```
 
 
