@@ -42,14 +42,13 @@ tuple_cubed_1 = (1, 3)
 
 ```python
 def find_term_derivative(term):
-    constant = term[0]*term[1]
-    exponent = term[1] - 1
-    return (constant, exponent)
+    pass
 ```
 
 
 ```python
-find_term_derivative(tuple_cubed_1) # (3, 2)
+# use find_term_derivative on tuple_cubed_1
+# (3, 2)
 ```
 
 
@@ -64,7 +63,9 @@ Let's try the function with $f(x) = 2x^2$.
 
 ```python
 tuple_squared = (2, 2)
-find_term_derivative(tuple_squared) # (4, 1)
+
+# use find_term_derivative on tuple_squared
+# (4, 1)
 ```
 
 
@@ -85,14 +86,14 @@ Let's apply this function to $f(x) = 4x^3 - 3x$.
 
 ```python
 def find_derivative(function_terms):
-    derivative_terms = list(map(lambda term: find_term_derivative(term),function_terms))
-    return list(filter(lambda derivative_term: derivative_term[0] != 0, derivative_terms))
+    pass
 ```
 
 
 ```python
-tuple_cubed_2 = [(4, 3), (-3, 1)]
-find_derivative(tuple_cubed_2)  # [(12, 2), (-3, 0)]
+tuple_cubed_2 = None
+# use find_derivative on tuple_cubed_2
+# [(12, 2), (-3, 0)]
 ```
 
 
@@ -102,12 +103,13 @@ find_derivative(tuple_cubed_2)  # [(12, 2), (-3, 0)]
 
 
 
-One gotcha to note is when one of our terms is a constant, when taking the derivative, the constant is removed.  For example, when $f(x) = 3x^2 - 11$, the derivative $f'(x) = 6x$.  The reason why is because 11 is the same as $11*x^0$ which is also $11*1$, as anything raised to the zero power equals 1. And so the derivative of the term $11x^0$ equals $0*11*x^{-1} = 0$.  Our `find_derivative` function should return, using `filter`, only the terms whose derivatives are not multiplied by zero.  
+One gotcha to note is when one of our terms is a constant, when taking the derivative, the constant is removed.  For example, when $f(x) = 3x^2 - 11$, the derivative $f'(x) = 6x$.  The reason why is because 11 is the same as $11*x^0$ which is also $11*1$, as anything raised to the zero power equals 1. And so the derivative of the term $11x^0$ equals $0*11*x^{-1} = 0$.  Our `find_derivative` function should return, using `filter`, only the terms whose derivatives are not multiplied by zero.  Let's store $f(x) = 3x^2 - 11$ in `tuple_squared_1` and apply `find_derivative` to it.
 
 
 ```python
-tuple_squared_1 = [(3, 2), (-11, 0)]
-find_derivative(tuple_squared_1) # [(6, 1)]
+tuple_squared_1 = None
+# use find_derivative on tuple_squared_1
+# [(6, 1)]
 ```
 
 
@@ -122,16 +124,13 @@ Our next function is called, `derivative_at` which, when provided a list of term
 
 ```python
 def derivative_at(terms, x):
-    derivative_fn = find_derivative(terms)
-    total = 0
-    for term in derivative_fn:
-        total += term[0]*x**term[1]
-    return total
+    pass
 ```
 
 
 ```python
-find_derivative(tuple_squared_1) # [(6, 1)]
+# apply find_derivative to tuple_squared_1
+# [(6, 1)]
 ```
 
 
@@ -143,7 +142,8 @@ find_derivative(tuple_squared_1) # [(6, 1)]
 
 
 ```python
-derivative_at(tuple_squared_1, 2) # 12
+# apply derivative_at to tuple_squared_1, looking to get the derivative at x=2
+# 12
 ```
 
 
@@ -188,39 +188,8 @@ Now, let's apply our function `tangent_line` to `tuple_squared_1`. Let's assume 
 
 
 ```python
-tan_line = tangent_line(tuple_squared_1, 5, 6)
-tan_line
+tan_line = None
 ```
-
-
-
-
-    {'lab': " f' (x) = 30",
-     'tan': array([-26.        , -22.32653061, -18.65306122, -14.97959184,
-            -11.30612245,  -7.63265306,  -3.95918367,  -0.28571429,
-              3.3877551 ,   7.06122449,  10.73469388,  14.40816327,
-             18.08163265,  21.75510204,  25.42857143,  29.10204082,
-             32.7755102 ,  36.44897959,  40.12244898,  43.79591837,
-             47.46938776,  51.14285714,  54.81632653,  58.48979592,
-             62.16326531,  65.83673469,  69.51020408,  73.18367347,
-             76.85714286,  80.53061224,  84.20408163,  87.87755102,
-             91.55102041,  95.2244898 ,  98.89795918, 102.57142857,
-            106.24489796, 109.91836735, 113.59183673, 117.26530612,
-            120.93877551, 124.6122449 , 128.28571429, 131.95918367,
-            135.63265306, 139.30612245, 142.97959184, 146.65306122,
-            150.32653061, 154.        ]),
-     'x_dev': array([2.        , 2.12244898, 2.24489796, 2.36734694, 2.48979592,
-            2.6122449 , 2.73469388, 2.85714286, 2.97959184, 3.10204082,
-            3.2244898 , 3.34693878, 3.46938776, 3.59183673, 3.71428571,
-            3.83673469, 3.95918367, 4.08163265, 4.20408163, 4.32653061,
-            4.44897959, 4.57142857, 4.69387755, 4.81632653, 4.93877551,
-            5.06122449, 5.18367347, 5.30612245, 5.42857143, 5.55102041,
-            5.67346939, 5.79591837, 5.91836735, 6.04081633, 6.16326531,
-            6.28571429, 6.40816327, 6.53061224, 6.65306122, 6.7755102 ,
-            6.89795918, 7.02040816, 7.14285714, 7.26530612, 7.3877551 ,
-            7.51020408, 7.63265306, 7.75510204, 7.87755102, 8.        ])}
-
-
 
 Now, let's plot our function $f(x) = 3x^2 + 11$ along with the tangent line for $x=5$
 
@@ -253,8 +222,8 @@ Now, you can use `np.linspace` to generate $x$-values between -10 and 10. Next y
 
 ```python
 x_values = np.linspace(-10, 10, 100)
-function_values = list(map(lambda x: output_at(tuple_squared_1, x), x_values))
-derivative_values = list(map(lambda x: derivative_at(tuple_squared_1, x),x_values))
+function_values = None
+derivative_values = None
 ```
 
 Now, let's plot $f(x)$ and $f'(x)$ side by side.
